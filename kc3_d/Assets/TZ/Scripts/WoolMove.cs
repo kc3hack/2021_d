@@ -5,15 +5,10 @@ using UnityEngine;
 namespace kc3.d.tz.divide {
     public class WoolMove : MonoBehaviour {
         [SerializeField] WoolChange[] wools;
-        void Start() {
 
-        }
-
-        // Update is called once per frame
-        void Update() {
-
-        }
-
+        /// <summary>
+        /// 羊を奥のやつから手前のやつに動かす(データだけ)　最奥は移動後のデータを作成する
+        /// </summary>
         public void MoveWoolNext() {
             WoolID beforeID = WoolID.NULL;
             foreach(WoolChange wool in wools) {
