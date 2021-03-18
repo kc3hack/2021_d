@@ -23,7 +23,9 @@ namespace kc3.d.tz.divide {
             int beforeScore = scoreNum;
             if (istrue) {
                 scoreNum += BASE_SCORE * magNum;
-                magNum++;
+                if (magNum < 100) {
+                    magNum++;
+                }
             } else {
                 scoreNum -= BASE_SCORE;
                 magNum = 1;
@@ -42,6 +44,9 @@ namespace kc3.d.tz.divide {
             } else {
                 magnification.color = LOW;
             }
+        }
+        public int GetScore() {
+            return scoreNum;
         }
     }
 }

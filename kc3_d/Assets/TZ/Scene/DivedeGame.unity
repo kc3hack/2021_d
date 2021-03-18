@@ -656,6 +656,7 @@ MonoBehaviour:
   timerFill: {fileID: 515097815}
   timerText: {fileID: 220118030}
   timerTransform: {fileID: 220118029}
+  scoreManager: {fileID: 1840679634}
 --- !u!114 &515097815
 MonoBehaviour:
   m_ObjectHideFlags: 0
