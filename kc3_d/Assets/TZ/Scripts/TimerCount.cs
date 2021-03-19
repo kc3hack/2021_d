@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using kc3.d.tz.evolve;
+using kc3.d.tz.common;
 
 namespace kc3.d.tz.divide {
     public class TimerCount : MonoBehaviour {
@@ -12,6 +12,7 @@ namespace kc3.d.tz.divide {
         [SerializeField] Text timerText;
         [SerializeField] RectTransform timerTransform;
         [SerializeField] ScoreManager scoreManager;
+        [SerializeField] FadeManager fadeManager;
         readonly int GAME_TIME = 60;
         readonly Vector3 TIMER_ANIMATION_SCALE = new Vector3(1.3f, 1.3f, 1);
 
@@ -47,7 +48,7 @@ namespace kc3.d.tz.divide {
                 timerText.text = i.ToString();
             }
             evolveValue.SetGamePoint(GetGamePoint());
-            SceneManager.LoadScene("Test");
+            fadeManager.FadeInAndSceneLoad();
         }
 
         public float GetGamePoint() {

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TZ/Scene/DivedeGame.unity
+    path: Assets/TZ/Scene/DivideGame.unity
     guid: fd64bc76682e6104ba1bab4bc9687d75
   - enabled: 1
     path: Assets/TZ/Scene/Test.unity
