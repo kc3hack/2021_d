@@ -8,7 +8,8 @@ namespace kc3.d.tz.common {
     //ここにシーン名を全部完全一致で書く。遷移先シーンはインスペクタからこれを参照したenum変数で設定
     public enum Scenes {
         Test,
-        DivideGame
+        DivideGame,
+        Run
     };
 
     public class FadeManager : MonoBehaviour {

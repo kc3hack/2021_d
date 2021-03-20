@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TZ/Scene/Test.unity
     guid: e84002241936f71489d7864a347235c0
+  - enabled: 1
+    path: Assets/ygkn/Scenes/Run.unity
+    guid: bc7edf6886b3e4af785a74177bb82dc9
   m_configObjects: {}

@@ -2089,6 +2089,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3415377997593741141, guid: 6963102c6a35b244d818b339c255e61c,
+        type: 3}
+      propertyPath: moveScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3415377997992772245, guid: 6963102c6a35b244d818b339c255e61c,
         type: 3}
       propertyPath: m_Pivot.x
