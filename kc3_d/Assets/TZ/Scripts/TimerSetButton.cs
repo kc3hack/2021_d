@@ -29,7 +29,12 @@ namespace kc3.d.tz.alarm {
                 if(remainHour < 0) {
                     remainHour = 24 + remainHour;
                 }
-                if (remainHour == 23) {
+
+                if(remainHour == 0 && remainMinute == 0) {
+                    count.text = "おきてください";
+                    game.SetActive(true);
+                    Debug.Log("時間です");
+                }else if (remainHour == 23) {
                     if (isGameTime(remainHour * 60 + remainMinute)) {
                         count.text = "おきてください";
                         game.SetActive(true);
