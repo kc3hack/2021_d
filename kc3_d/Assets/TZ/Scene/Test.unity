@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.55711365, g: 0.6981132, b: 0.5367569, a: 1}
+  m_Color: {r: 0.77254903, g: 0.8666667, b: 0.3372549, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -974,7 +974,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.5735395, g: 0.6603774, b: 0.43921328, a: 0}
+  m_BackGroundColor: {r: 0.77254903, g: 0.8666667, b: 0.3372549, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2092,7 +2092,7 @@ PrefabInstance:
     - target: {fileID: 3415377997593741141, guid: 6963102c6a35b244d818b339c255e61c,
         type: 3}
       propertyPath: moveScene
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3415377997992772245, guid: 6963102c6a35b244d818b339c255e61c,
         type: 3}
