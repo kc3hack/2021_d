@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nemu/Scenes/Home.unity
     guid: 766317cc25849884e94259da1be3c4c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/TZ/Scene/Test.unity
     guid: e84002241936f71489d7864a347235c0
   - enabled: 1

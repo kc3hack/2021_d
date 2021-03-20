@@ -11,7 +11,7 @@ namespace kc3.d.tz.evolve {
         readonly Color TRANSARENT = new Color(1, 1, 1, 0);
         readonly Color NORMAL_COLOR = new Color(1, 1, 1, 1);
         readonly Vector3 SMALL = new Vector3(0, 0, 0);
-        readonly Vector3 NORMAL = new Vector3(1, 1, 1);
+        readonly Vector3 NORMAL = new Vector3(2.5f, 2.5f, 2.5f);
         [SerializeField] SpriteRenderer testWool;
         [SerializeField] Sprite[] wools;
         Dictionary<int, int> PointToMoveIndexConverter = new Dictionary<int, int>() {
