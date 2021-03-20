@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("run", runningState.IsRunning());
+        anim.SetBool("run", runningState.GetState() == RunningState.GameState.Running);
 
         if (runningState.CanJump() && groundingCheck.IsGround()) {
             jumpElapsedTime = 0.0f;

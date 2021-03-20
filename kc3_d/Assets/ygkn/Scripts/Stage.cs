@@ -20,7 +20,7 @@ public class Stage : MonoBehaviour
 
     void Update()
     {
-        if (!runningState.IsRunning()) {
+        if (runningState.GetState() != RunningState.GameState.Running) {
             return;
         }
 

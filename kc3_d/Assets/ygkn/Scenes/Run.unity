@@ -374,7 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eb1985fd3c47a7481966c1589ef980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 1973123853}
 --- !u!4 &598150006
 Transform:
   m_ObjectHideFlags: 0
@@ -1203,8 +1202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 224317571}
   gameOverText: {fileID: 1471719834}
+  runningState: {fileID: 598150005}
   scoreString: "\u3059\u3053\u3042: "
-  gameOverColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1973123854
 Transform:
   m_ObjectHideFlags: 0
