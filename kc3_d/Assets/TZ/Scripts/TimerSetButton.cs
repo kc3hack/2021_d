@@ -49,7 +49,7 @@ namespace kc3.d.tz.alarm {
         public void TimerSet() {
             timerHour = wakeUpTImeSetting.GetHour();
             timerMinute = wakeUpTImeSetting.GetMinute();
-            info.text = timerHour + ":" + timerMinute.ToString("00")+ "にタイマーをセットしました";
+            info.text = timerHour + ":" + timerMinute.ToString("00")+ "にタイマーをセットしたメェ～";
             isSet = true;
         }
 

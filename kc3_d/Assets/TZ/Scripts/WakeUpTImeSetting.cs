@@ -22,7 +22,7 @@ namespace kc3.d.tz.alarm {
                 }else if(hour > 23) {
                     hour = 23;
                 }
-                myField.text = hour.ToString();
+                myField.text = hour.ToString("00");
                 isSetHour = true;
             } else {
                 isSetHour = false;
@@ -39,7 +39,7 @@ namespace kc3.d.tz.alarm {
                 } else if(minute > 59) {
                     minute = 59;
                 }
-                myField.text = minute.ToString();
+                myField.text = minute.ToString("00");
                 isSetMinute = true;
             } else {
                 isSetMinute = false;

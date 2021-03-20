@@ -1336,7 +1336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1855360189}
-        m_MethodName: ToGame
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1968,10 +1968,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855360188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4864313465ead942837ffc7e0668683, type: 3}
+  m_Script: {fileID: 11500000, guid: 36d31e5a986cb444f96ba0b31f6a1dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup_: {fileID: 969066284}
+  timerSetButton: {fileID: 576758998}
   fadeManager: {fileID: 1864861956}
 --- !u!4 &1855360190
 Transform:
