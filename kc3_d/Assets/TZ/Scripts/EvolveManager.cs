@@ -6,7 +6,7 @@ using DG.Tweening;
 namespace kc3.d.tz.evolve {
     public class EvolveManager : MonoBehaviour {
         EvolveValue evolveValue;
-        static int evolveIndex = 3; //ゲーム中に変更しセーブ。今はテスト用の仮。
+        static int evolveIndex = 0; //ゲーム中に変更しセーブ。今はテスト用の仮。
         Transform testWoolTransform;
         readonly Color TRANSARENT = new Color(1, 1, 1, 0);
         readonly Color NORMAL_COLOR = new Color(1, 1, 1, 1);
@@ -21,6 +21,8 @@ namespace kc3.d.tz.evolve {
             {0,-2}
         };
         void Start() {
+            evolveIndex = PlayerPrefs.GetInt("EVOLVE_INDEX", 0);
+            testWool.sprite = wools[evolveIndex];
             evolveValue = EvolveValue.instance;
             testWoolTransform = testWool.gameObject.GetComponent<Transform>();
             Evolve();
@@ -33,16 +35,16 @@ namespace kc3.d.tz.evolve {
                 if (num > item.Key) {
                     moveNum = item.Value;
                     break;
-                } else {
-                    moveNum = 1;
                 }
             }
             evolveIndex += moveNum;
-            if (moveNum < 0) {
-                moveNum = 0;
-            } else if (moveNum > wools.Length - 1) {
-                moveNum = wools.Length - 1;
+            if (evolveIndex < 0) {
+                evolveIndex = 0;
+            } else if (evolveIndex > wools.Length - 1) {
+                evolveIndex = wools.Length - 1;
             }
+            PlayerPrefs.SetInt("EVOLVE_INDEX", evolveIndex);
+            PlayerPrefs.Save();
             Sequence sequence = DOTween.Sequence();
             sequence.Append(testWoolTransform.DOShakeScale(2, 0.6f,10,120,false))
                            .Join(testWool.DOColor(TRANSARENT, 2))
