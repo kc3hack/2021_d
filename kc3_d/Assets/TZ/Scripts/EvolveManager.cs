@@ -25,7 +25,10 @@ namespace kc3.d.tz.evolve {
             testWool.sprite = wools[evolveIndex];
             evolveValue = EvolveValue.instance;
             testWoolTransform = testWool.gameObject.GetComponent<Transform>();
-            Evolve();
+            int num = (int)evolveValue.GetEvolveNum();
+            if (num != 5) {
+                Evolve();
+            }
         }
 
         public void Evolve() {
