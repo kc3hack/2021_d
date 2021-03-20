@@ -19,7 +19,7 @@ public class Home_Game : MonoBehaviour
     }
 
     public void ToGame(){
-        int game = Random.Range(2,4);
+        int game = Random.Range(1,4);
         fadeManager.SetmoveScene((Scenes)game);
         fadeManager.FadeInAndSceneLoad();
     }
