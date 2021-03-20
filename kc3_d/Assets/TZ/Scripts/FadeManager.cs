@@ -11,7 +11,8 @@ namespace kc3.d.tz.common {
         Home = 0,
         DivideGame = 1,
         Run = 2,
-        TouchGame = 3
+        TouchGame = 3,
+        CatchGame = 4
     };
 
     public class FadeManager : MonoBehaviour {
