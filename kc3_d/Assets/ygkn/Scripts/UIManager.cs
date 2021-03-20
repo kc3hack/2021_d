@@ -10,9 +10,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] string scoreString = "すこあ: ";
 
-    [SerializeField] Color gameOverColor;
-
-
     public void UpdateScore(int score)
     {
         scoreText.text = scoreString + score.ToString();
@@ -21,6 +18,5 @@ public class UIManager : MonoBehaviour
     {
         gameOverText.SetActive(true);
     }
-
 
 }
