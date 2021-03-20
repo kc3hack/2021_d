@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] string scoreString = "すこあ: ";
 
-    [SerializeField] Color gameOverColor = new Color(1, 0, 0);
+    [SerializeField] Color gameOverColor;
 
 
     public void UpdateScore(int score)
