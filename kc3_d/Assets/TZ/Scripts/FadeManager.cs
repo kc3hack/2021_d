@@ -32,7 +32,9 @@ namespace kc3.d.tz.common {
             StartCoroutine(FadeOut());
         }
 
-
+         /// <summary>
+        /// moveSeneを外部から変更-ランダムにミニゲームの遷移先を選ぶ都合上勝手に追加しております
+        /// </summary>
         public void SetmoveScene(Scenes setScene){
             moveScene = setScene;
         }

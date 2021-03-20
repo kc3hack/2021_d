@@ -11,7 +11,7 @@ public class Home_Game : MonoBehaviour
     Scenes movescenes;
     void Start()
     {
-        popup();
+        //popup();
     }
 
     void popup(){
