@@ -11,6 +11,7 @@ public class RunningState : MonoBehaviour
         Running,
         GameOver,
         Clear,
+        End,
     }
 
 
@@ -36,6 +37,10 @@ public class RunningState : MonoBehaviour
 
         if (score > 120) {
             gameState = GameState.Clear;
+        }
+
+        if ((gameState == GameState.Clear || gameState == GameState.GameOver) && clicking) {
+            gameState = GameState.End;
         }
     }
 
