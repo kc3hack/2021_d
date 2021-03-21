@@ -9,18 +9,23 @@ namespace kc3.d.tz.alarm {
         static int hour, minute;
         static bool isSetHour, isSetMinute;
         InputField myField;
-        void Start() {
+        readonly int MIN = 0;
+        readonly int MAX_HOUR = 23;
+        readonly int MAX_MINUTE = 59;
+        void Awake() {
             myField = gameObject.GetComponent<InputField>();
         }
-
+        /// <summary>
+        /// 時間インプットフィールドが編集完了したら呼ばれる。入力を時間のタイマー設定として受け取る。ありえない値は修正。
+        /// </summary>
         public void SetHour() {
             string hourText = myField.text;
             if(hourText != "") {
                 hour = int.Parse(hourText);
-                if(hour < 0) {
-                    hour = 0;
-                }else if(hour > 23) {
-                    hour = 23;
+                if(hour < MIN) {
+                    hour = MIN;
+                }else if(hour > MAX_HOUR) {
+                    hour = MAX_HOUR;
                 }
                 myField.text = hour.ToString("00");
                 isSetHour = true;
@@ -30,14 +35,17 @@ namespace kc3.d.tz.alarm {
             CheckOnButton();
         }
 
+        /// <summary>
+        ///分インプットフィールドが編集完了したら呼ばれる。入力を分のタイマー設定として受け取る。ありえない値は修正。 
+        /// </summary>
         public void SetMinute() {
             string minuteText = myField.text;
             if(minuteText != "") {
                 minute = int.Parse(minuteText);
-                if (minute < 0) {
-                    minute = 0;
-                } else if(minute > 59) {
-                    minute = 59;
+                if (minute < MIN) {
+                    minute = MIN;
+                } else if(minute > MAX_MINUTE) {
+                    minute = MAX_MINUTE;
                 }
                 myField.text = minute.ToString("00");
                 isSetMinute = true;
@@ -46,7 +54,9 @@ namespace kc3.d.tz.alarm {
             }
             CheckOnButton();
         }
-
+        /// <summary>
+        /// 両方の設定が入力されたかを判定。もしそうならタイマー設定ボタンが有効化。
+        /// </summary>
         public void CheckOnButton() {
             if(isSetMinute && isSetHour) {
                 set.interactable = true;
@@ -54,11 +64,16 @@ namespace kc3.d.tz.alarm {
                 set.interactable = false;
             }
         }
+
         public int GetHour() {
             return hour;
         }
         public int GetMinute() {
             return minute;
+        }
+
+        public void SetInputFieldText(int timerNum) {
+            myField.text = timerNum.ToString("00");
         }
     }
 }
