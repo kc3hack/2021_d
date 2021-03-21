@@ -10,6 +10,8 @@ namespace kc3.d.tz.alarm {
         [SerializeField] Text info,count;
         [SerializeField] WakeUpTImeSetting wakeUpTImeSettingHour,wakeUpTImeSettingMinute;
         [SerializeField] GameObject game;
+        [SerializeField] AudioSource audioSource;
+        [SerializeField] AudioClip audioClip;
         static int timerHour, timerMinute;
         bool isSet;
         int isFirstSetUp;//boolの代わり　1ならtrue
@@ -51,6 +53,7 @@ namespace kc3.d.tz.alarm {
                 if(remainHour == 0 && remainMinute == 0) {
                     count.text = "おきてください";
                     game.SetActive(true);
+                    audioSource.PlayOneShot(audioClip);
                 }else if (remainHour == 23) {
                     if (isGameTime(remainHour * 60 + remainMinute)) {
                         count.text = "おきてください";
