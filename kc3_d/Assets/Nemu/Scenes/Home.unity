@@ -773,7 +773,7 @@ RectTransform:
   - {fileID: 576758994}
   - {fileID: 83527634}
   m_Father: {fileID: 574002672}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -870,9 +870,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1960138025}
   - {fileID: 463604920}
   - {fileID: 969066285}
-  - {fileID: 1960138025}
   - {fileID: 877606153}
   - {fileID: 1864861959}
   m_Father: {fileID: 0}
@@ -1028,7 +1028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 1960138026}
   count: {fileID: 83527635}
-  wakeUpTImeSetting: {fileID: 1958359649}
+  wakeUpTImeSettingHour: {fileID: 1958359649}
+  wakeUpTImeSettingMinute: {fileID: 2124956909}
   game: {fileID: 969066284}
 --- !u!1 &716809611
 GameObject:
@@ -1286,7 +1287,7 @@ RectTransform:
   m_Children:
   - {fileID: 1274177967}
   m_Father: {fileID: 574002672}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2418,7 +2419,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 574002672}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

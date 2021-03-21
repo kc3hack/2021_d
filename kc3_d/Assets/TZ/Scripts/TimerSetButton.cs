@@ -8,11 +8,21 @@ namespace kc3.d.tz.alarm {
     public class TimerSetButton : MonoBehaviour {
 
         [SerializeField] Text info,count;
-        [SerializeField] WakeUpTImeSetting wakeUpTImeSetting;
+        [SerializeField] WakeUpTImeSetting wakeUpTImeSettingHour,wakeUpTImeSettingMinute;
         [SerializeField] GameObject game;
-        int timerHour, timerMinute;
+        static int timerHour, timerMinute;
         bool isSet;
         int nowHour, nowMinute;
+
+        private void Start() {
+            timerHour = PlayerPrefs.GetInt("HOUR", 0);
+            timerMinute = PlayerPrefs.GetInt("MINUTE", 0);
+            if(timerHour != 0 && timerMinute != 0) {
+                isSet = true;
+                wakeUpTImeSettingHour.SetInputFieldText(timerHour);
+                wakeUpTImeSettingMinute.SetInputFieldText(timerMinute);
+            }
+        }
 
         private void Update() {
             if (isSet) {
@@ -48,10 +58,15 @@ namespace kc3.d.tz.alarm {
         /// タイマーセットボタンを押したときのコールバック。タイマー時間を取得＆セット
         /// </summary>
         public void TimerSet() {
-            timerHour = wakeUpTImeSetting.GetHour();
-            timerMinute = wakeUpTImeSetting.GetMinute();
+            timerHour = wakeUpTImeSettingHour.GetHour();
+            timerMinute = wakeUpTImeSettingMinute.GetMinute();
             info.text = timerHour + ":" + timerMinute.ToString("00")+ "にタイマーをセットしたメェ～";
             isSet = true;
+            PlayerPrefs.SetInt("HOUR", timerHour);
+            PlayerPrefs.SetInt("MINUTE", timerMinute);
+            PlayerPrefs.Save();
+
+            NotificationManager.SetNotification(GetRemainTime());
         }
         /// <summary>
         /// 起床設定時刻から三十分後までの間か判定
@@ -70,13 +85,18 @@ namespace kc3.d.tz.alarm {
         /// </summary>
         /// <returns>設定時刻からの差分</returns>
         public int GetWakeUpDiff() {
+            var remainTime = GetRemainTime();
+            var diff = Math.Abs(remainTime);
+            return diff;
+        }
+
+        public int GetRemainTime() {
             nowHour = DateTime.Now.Hour;
             nowMinute = DateTime.Now.Minute;
             var remainHour = timerHour - nowHour;
             var remainMinute = timerMinute - nowMinute;
             var remainTime = remainHour * 60 + remainMinute;
-            var diff = Math.Abs(remainTime);
-            return diff;
+            return remainTime;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace kc3.d.tz.alarm {
         readonly int MIN = 0;
         readonly int MAX_HOUR = 23;
         readonly int MAX_MINUTE = 59;
-        void Start() {
+        void Awake() {
             myField = gameObject.GetComponent<InputField>();
         }
         /// <summary>
@@ -70,6 +70,10 @@ namespace kc3.d.tz.alarm {
         }
         public int GetMinute() {
             return minute;
+        }
+
+        public void SetInputFieldText(int timerNum) {
+            myField.text = timerNum.ToString("00");
         }
     }
 }
