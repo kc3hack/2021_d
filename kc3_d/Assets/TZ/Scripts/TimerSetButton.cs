@@ -12,11 +12,19 @@ namespace kc3.d.tz.alarm {
         [SerializeField] GameObject game;
         static int timerHour, timerMinute;
         bool isSet;
+        int isFirstSetUp;//boolの代わり　1ならtrue
         int nowHour, nowMinute;
 
         private void Start() {
             timerHour = PlayerPrefs.GetInt("HOUR", 0);
             timerMinute = PlayerPrefs.GetInt("MINUTE", 0);
+            isFirstSetUp = PlayerPrefs.GetInt("ISFIRST", 0);
+            if(isFirstSetUp == 0) {
+                NotificationManager.RegisterChannel();
+                isFirstSetUp = 1;
+                PlayerPrefs.SetInt("ISFIRST", isFirstSetUp);
+                PlayerPrefs.Save();
+            }
             if(timerHour != 0 && timerMinute != 0) {
                 isSet = true;
                 wakeUpTImeSettingHour.SetInputFieldText(timerHour);
