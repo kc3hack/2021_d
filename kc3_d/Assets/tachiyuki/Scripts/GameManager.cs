@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using kc3.d.tz.evolve;
+using kc3.d.tz.common;
 public class GameManager : MonoBehaviour
 {
     GameObject Timetext;
     GameObject Scoretext;
     GameObject generator;
+    EvolveValue evolveValue;
+    [SerializeField] FadeManager fadeManager;
     float time = 60.0f;
     int score;
+    bool play = true;
 
     public void GetGrass()
     {
@@ -29,6 +33,7 @@ public class GameManager : MonoBehaviour
         this.Timetext = GameObject.Find("Time");
         this.Scoretext = GameObject.Find("Score");
         this.generator = GameObject.Find("ItemGenerator");
+        evolveValue = EvolveValue.instance;
     }
 
     // Update is called once per frame
@@ -37,6 +42,11 @@ public class GameManager : MonoBehaviour
         if (time < 0)
         {
             generator.SetActive(false);
+            if(play){
+                evolveValue.SetGamePoint(score / 300);
+                fadeManager.FadeInAndSceneLoad();
+                play = false;
+            }
         }
         else
         {
@@ -44,5 +54,6 @@ public class GameManager : MonoBehaviour
         }
         this.Timetext.GetComponent<Text>().text = "Time : " + this.time.ToString("F1");
         this.Scoretext.GetComponent<Text>().text = "Score : " + this.score.ToString("F1");
+        
     }
 }

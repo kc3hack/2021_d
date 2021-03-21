@@ -98,8 +98,10 @@ public class Touch_Object : MonoBehaviour
     }
 
     IEnumerator Touchedanim(){
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<AudioSource>().Play();
         rb.velocity = new Vector2(0,10);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
 
