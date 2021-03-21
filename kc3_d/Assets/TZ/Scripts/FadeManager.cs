@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 namespace kc3.d.tz.common {
     //ここにシーン名を全部完全一致で書く。遷移先シーンはインスペクタからこれを参照したenum変数で設定
     public enum Scenes {
-        Test,
-        DivideGame,
-        Run
+        Test = 6,
+        Home = 0,
+        DivideGame = 1,
+        Run = 2,
+        TouchGame = 3,
+        CatchGame = 4
     };
 
     public class FadeManager : MonoBehaviour {
@@ -28,6 +31,13 @@ namespace kc3.d.tz.common {
             variable = 1.0f / WAIT_TIME;
             fade = gameObject.GetComponent<Image>();
             StartCoroutine(FadeOut());
+        }
+
+         /// <summary>
+        /// moveSeneを外部から変更-ランダムにミニゲームの遷移先を選ぶ都合上勝手に追加しております
+        /// </summary>
+        public void SetmoveScene(Scenes setScene){
+            moveScene = setScene;
         }
 
         /// <summary>

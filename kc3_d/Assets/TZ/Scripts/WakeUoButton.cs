@@ -33,6 +33,10 @@ namespace kc3.d.tz.alarm {
                     break;
                 }
             }
+            //ここランダム処理のため勝手に付け加えています////
+            int game = Random.Range(1,5);
+            fadeManager.SetmoveScene((Scenes)game);
+            /////////////////////////////////////////////
             fadeManager.FadeInAndSceneLoad();
         }
     }
