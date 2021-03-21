@@ -33,7 +33,6 @@ namespace kc3.d.tz.alarm {
                 if(remainHour == 0 && remainMinute == 0) {
                     count.text = "おきてください";
                     game.SetActive(true);
-                    Debug.Log("時間です");
                 }else if (remainHour == 23) {
                     if (isGameTime(remainHour * 60 + remainMinute)) {
                         count.text = "おきてください";
@@ -45,14 +44,20 @@ namespace kc3.d.tz.alarm {
                 }
             }
         }
-
+        /// <summary>
+        /// タイマーセットボタンを押したときのコールバック。タイマー時間を取得＆セット
+        /// </summary>
         public void TimerSet() {
             timerHour = wakeUpTImeSetting.GetHour();
             timerMinute = wakeUpTImeSetting.GetMinute();
             info.text = timerHour + ":" + timerMinute.ToString("00")+ "にタイマーをセットしたメェ～";
             isSet = true;
         }
-
+        /// <summary>
+        /// 起床設定時刻から三十分後までの間か判定
+        /// </summary>
+        /// <param name="remainTime">タイマーまでの時間</param>
+        /// <returns>もし三十分後までならtrueで、ゲームできる状態に</returns>
         public bool isGameTime(int remainTime) {
             if(remainTime > 1410) {
                 return true;
@@ -60,7 +65,10 @@ namespace kc3.d.tz.alarm {
                 return false;
             }
         }
-
+        /// <summary>
+        /// 起床で得られる進化経験値を算出するため、設定時刻から何分遅れでゲームスタート(起床)したか計算する
+        /// </summary>
+        /// <returns>設定時刻からの差分</returns>
         public int GetWakeUpDiff() {
             nowHour = DateTime.Now.Hour;
             nowMinute = DateTime.Now.Minute;
