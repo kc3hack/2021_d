@@ -10,6 +10,7 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] RunningState runningState;
 
     EvolveValue evolveValue;
+    bool loading = false;
 
     void Start (){
         evolveValue = EvolveValue.instance;
@@ -19,8 +20,12 @@ public class SceneTransition : MonoBehaviour
     {
         if(runningState.GetState() == RunningState.GameState.End) {
 
-            fadeManager.FadeInAndSceneLoad();
-            evolveValue.SetGamePoint(runningState.GetScore() / 120.0f);
+            if(!loading){
+                evolveValue.SetGamePoint(runningState.GetScore() / 120.0f);
+                fadeManager.FadeInAndSceneLoad();
+                loading = true;
+            }
+            
         }
     }
 }
