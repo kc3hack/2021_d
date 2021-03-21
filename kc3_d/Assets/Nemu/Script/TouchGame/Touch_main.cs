@@ -19,6 +19,7 @@ enum Touch_Type{
 public class Touch_main : MonoBehaviour
 {
     [SerializeField] Camera camera_;
+    [SerializeField] GameObject button_;
     [SerializeField] GameObject text_;
     [SerializeField] Text timer_;
     [SerializeField] Text point_;
@@ -30,7 +31,7 @@ public class Touch_main : MonoBehaviour
 
     EvolveValue evolveValue;
     
-    bool play = true;
+    bool play = false;
     public float time = 120.00f;
 
     public double point = 0;
@@ -44,7 +45,6 @@ public class Touch_main : MonoBehaviour
         //変更する可能性あり
         hituji = (GameObject)Resources.Load ("Hituji");
         wolf = (GameObject)Resources.Load ("Wolf");
-        StartCoroutine("Pop");
     }
 
     void Update(){
@@ -55,6 +55,12 @@ public class Touch_main : MonoBehaviour
         else if(Input.touchCount > 0) {
             if(Input.GetTouch(0).phase == TouchPhase.Began) Touch();
         }
+    }
+
+    public void OnClick(){
+        button_.SetActive(false);
+        play = true;
+        StartCoroutine("Pop");
     }
 
     //時間を測ります
@@ -119,7 +125,7 @@ public class Touch_main : MonoBehaviour
             Set(position, type);
             yield return new WaitForSeconds(Random.Range(0.25f + time / 240, 0.5f + time / 120));
         }
-
+        yield return new WaitForSeconds(1);
         Finish();
     }
 
