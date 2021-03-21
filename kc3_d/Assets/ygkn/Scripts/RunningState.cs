@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class RunningState : MonoBehaviour
 {
-    enum GameState
+    public enum GameState
     {
         Start,
         Running,
         GameOver,
+        Clear,
     }
 
-    [SerializeField] UIManager uiManager;
 
     GameState gameState = GameState.Start;
 
@@ -33,8 +33,10 @@ public class RunningState : MonoBehaviour
             score += Time.deltaTime;
         }
 
-        uiManager.UpdateScore((int)Mathf.Floor(score));
 
+        if (score > 120) {
+            gameState = GameState.Clear;
+        }
     }
 
     public bool CanJump()
@@ -42,15 +44,19 @@ public class RunningState : MonoBehaviour
         return clicking;
     }
 
-    public bool IsRunning()
+    public GameState GetState()
     {
-        return gameState == GameState.Running;
+        return gameState;
+    }
+
+    public int GetScore()
+    {
+        return (int)Mathf.Floor(score);
     }
 
     public void GameOver()
     {
         gameState = GameState.GameOver;
-        uiManager.GameOver();
     }
 
 

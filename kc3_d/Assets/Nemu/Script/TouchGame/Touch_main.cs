@@ -37,7 +37,7 @@ public class Touch_main : MonoBehaviour
     public double point = 0;
     int combo = 0;
 
-    const int MAX_POINT = 15000;
+    const int MAX_POINT = 25000;
 
     void Start()
     {   

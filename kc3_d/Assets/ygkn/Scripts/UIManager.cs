@@ -7,20 +7,16 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Text scoreText;
     [SerializeField] GameObject gameOverText;
+    [SerializeField] GameObject clearText;
+    [SerializeField] RunningState runningState;
 
     [SerializeField] string scoreString = "すこあ: ";
 
-    [SerializeField] Color gameOverColor = new Color(1, 0, 0);
-
-
-    public void UpdateScore(int score)
+    void Update()
     {
-        scoreText.text = scoreString + score.ToString();
+        scoreText.text = scoreString + runningState.GetScore().ToString();
+        gameOverText.SetActive(runningState.GetState() == RunningState.GameState.GameOver);
+        clearText.SetActive(runningState.GetState() == RunningState.GameState.Clear);
     }
-    public void GameOver()
-    {
-        gameOverText.SetActive(true);
-    }
-
 
 }
